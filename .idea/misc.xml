@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/Projects/ListWithGifs/app/src/main/res/layout/activity_main.xml" value="0.32461538461538464" />
+        <entry key="..\:/Android/Projects/ListWithGifs/app/src/main/res/layout/fragment_list.xml" value="0.32685185185185184" />
+        <entry key="..\:/Android/Projects/ListWithGifs/app/src/main/res/layout/rv_list_item.xml" value="0.2515625" />
       </map>
     </option>
   </component>
