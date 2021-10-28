@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.Navigation
 import com.chkan.listwithgifs.ui.listview.ListViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -20,9 +20,6 @@ class MainActivity : AppCompatActivity() {
             viewModel.getGifList()
         }
 
-        val host: NavHostFragment = supportFragmentManager
-            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment? ?: return
-
-        navController = host.navController
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
     }
 }
