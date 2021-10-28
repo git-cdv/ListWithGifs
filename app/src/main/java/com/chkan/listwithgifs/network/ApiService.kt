@@ -22,7 +22,7 @@ private val retrofit = Retrofit.Builder()
 
 interface ApiService {
 
-    @GET("v1/gifs/trending?api_key=BhV54Rr7wBVmlrwDxygy3hyAG3W9tY71&q=&limit=25")
+    @GET("v1/gifs/trending?api_key=BhV54Rr7wBVmlrwDxygy3hyAG3W9tY71&q=&limit=10")
     suspend fun getListGifts() : GifModel
 }
 

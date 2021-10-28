@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
-import coil.load
+import com.bumptech.glide.Glide
 import com.chkan.listwithgifs.R
 import com.google.android.material.appbar.MaterialToolbar
 
@@ -24,11 +23,8 @@ class DetailFragment : Fragment() {
         val gif = DetailFragmentArgs.fromBundle(requireArguments()).gifSelected
 
         val imgUrl = gif.images.largeSize.url
-        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-        imgView.load(imgUri) {
-            placeholder(R.drawable.loading_animation)
-            error(R.drawable.ic_connection_error)
-        }
+
+        Glide.with(this).load(imgUrl).into(imgView)
 
         val toolbar : MaterialToolbar = v.findViewById(R.id.detail_toolbar)
         toolbar.title = gif.title

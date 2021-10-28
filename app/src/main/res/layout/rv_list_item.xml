@@ -16,12 +16,12 @@
             android:id="@+id/iv_cat_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
-            app:imageUrl="@{gif.images.fixedWidth.url}"
+            app:imageUrl="@{gif.images.fixedHeight.url}"
             android:onClick="@{() -> clickListener.onClick(gif)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="4dp"
             tools:src="@tools:sample/avatars"
             android:contentDescription="@string/is_gif" />
 
