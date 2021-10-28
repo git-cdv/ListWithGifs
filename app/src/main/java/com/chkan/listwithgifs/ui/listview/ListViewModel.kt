@@ -1,6 +1,6 @@
 package com.chkan.listwithgifs.ui.listview
 
-import android.util.Log
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,7 +26,6 @@ class ListViewModel : ViewModel() {
     fun getGifList() {
         viewModelScope.launch {
             _apiResult.value =  gifRepo.getGifList()
-            Log.d("MYLOGS", "ListViewModel : apiResult ->${_apiResult.value}")
         }
 
     }

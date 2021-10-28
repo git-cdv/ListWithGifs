@@ -15,7 +15,6 @@ class GifRepository {
         val deferred = scope.async {
             val result: ApiResult = try {
                 val list = Api.retrofitService.getListGifts().listGifts
-                Log.d("MYLOGS", "GifRepository : getGifList() ->$list")
                 ApiResult.Success(list)
             }catch (e: Exception) {
                 ApiResult.Error(e)

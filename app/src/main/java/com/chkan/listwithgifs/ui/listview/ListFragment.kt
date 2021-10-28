@@ -2,13 +2,11 @@ package com.chkan.listwithgifs.ui.listview
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.chkan.listwithgifs.R
 import com.chkan.listwithgifs.databinding.FragmentListBinding
@@ -25,20 +23,15 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d("MYLOGS", "ListFragment -> onCreateView")
         binding = FragmentListBinding.inflate(inflater)
-
-        // Позволяет привязке данных наблюдать за LiveData в течение жизненного цикла этого фрагмента
         binding.lifecycleOwner = this
         binding.viewModel=viewModel
 
-        //назначаем ресайклеру адаптер
         val adapter = GiftListAdapter(GifListListener { gif ->
             viewModel.displayGiftDetails(gif) })
         binding.rvList.adapter = adapter
 
-        viewModel.apiResult.observe(viewLifecycleOwner, Observer {
-            Log.d("MYLOGS", "ListFragment : apiResult ->$it")
+        viewModel.apiResult.observe(viewLifecycleOwner, {
             when(it){
                 is ApiResult.Success -> adapter.data = it.data
                 is ApiResult.Error -> {
@@ -48,7 +41,7 @@ class ListFragment : Fragment() {
             }
         })
 
-        viewModel.navToSelectedGif.observe(viewLifecycleOwner, Observer {
+        viewModel.navToSelectedGif.observe(viewLifecycleOwner, {
             if ( null != it ) {
                 this.findNavController().navigate(
                     ListFragmentDirections.actionListFragmentToDetailFragment(it))
