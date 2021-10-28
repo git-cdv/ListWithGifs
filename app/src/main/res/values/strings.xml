@@ -4,6 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="list">List Gifs</string>
     <string name="is_gif">It\'s gif</string>
-    <string name="error_text">Ой-ой, что-то не грузится :(</string>
+    <string name="error_text">Ой-ой, проверьте, пожалуйста, подключение к интернету</string>
     <string name="detail_image">Detail image</string>
 </resources>

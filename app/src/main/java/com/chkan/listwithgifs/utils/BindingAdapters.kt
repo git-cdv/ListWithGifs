@@ -8,7 +8,5 @@ import com.bumptech.glide.Glide
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
-
     Glide.with(imgView.context).load(imgUrl).centerCrop().into(imgView)
-
 }
